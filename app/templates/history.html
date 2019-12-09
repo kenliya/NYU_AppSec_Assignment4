@@ -1,0 +1,16 @@
+{% from "_formtemplates.html" import render_field %}
+{% if query_count %}
+	<p id="numqueries">{{ query_count }} </p>
+{% endif %}
+{% if results %}
+	{% for row in results %}
+		<p id="userid"><a href="/history/query{{row.query_num}}">{{ row.username }}</a></p>
+		<p id="query{{row.query_num}}"><a href="/history/query{{row.query_num}}">{{ row.query_num }}</a></p>
+		<p id="query_text">{{ row.query_text }}</p>
+		<p id="query_results">{{ row.query_results }}</p>
+	{% endfor %}
+{% endif %}
+{% if 'username' in session.keys() %}
+<li><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+{% endif %}
+<li><a href="/logout">Logout</a></li>

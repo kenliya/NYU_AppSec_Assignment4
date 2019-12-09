@@ -1,0 +1,13 @@
+{% from "_formtemplates.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.uname) }}
+    {{ render_field(form.pword) }}
+    {{ render_field(form.phone) }}
+  </dl>
+  <p><input type=submit value=Register>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+{% if success %}
+<p id="success">{{ success }}</p>
+{% endif %}

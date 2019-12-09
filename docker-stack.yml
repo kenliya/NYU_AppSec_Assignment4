@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  webapp:
+    image: nyu_appsec_assignment4_webapp
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        buildno: 1
+    ports:
+    - "8080:5001"
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure

@@ -1,0 +1,18 @@
+<title>Search Results - Login History</title>
+{{ table }}
+<table>
+<tr>
+<th>username</th>
+<th>session id</th>
+<th>login timestamp</th>
+<th>logout timestamp</th>
+</tr>
+
+{% for item in table %}
+<tr>
+	<td id=login_time>{{item[0]}}</td>
+
+</tr>
+
+{% endfor %}
+</table>

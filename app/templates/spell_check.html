@@ -1,0 +1,14 @@
+{% from "_formtemplates.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.inputtext) }}
+  </dl>
+  <p><input type=submit value=Submit>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+{% if inputtext %}
+<p id='textout'> {{ inputtext }}</p>
+{% endif %}
+{% if misspelled %}
+<p id="misspelled">{{ misspelled }}</p>
+{% endif %}

@@ -1,0 +1,17 @@
+{% from "_formtemplates.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.uname) }}
+    {{ render_field(form.pword) }}
+    {{ render_field(form.phone) }}
+  </dl>
+  <p><input type=submit value=Login>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+{% if result %}
+<p id="result">{{ result }}</p>
+{% endif %}
+{% if 'username' in session.keys() %}
+<li><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+{% endif %}
+<li><a href="/logout">Logout</a></li>

@@ -1,0 +1,19 @@
+{% from "_formtemplates.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.userid) }}
+  </dl>
+  <p><input type=submit value=Login>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+{% if results %}
+	{% for row in results %}
+	<p id="userid">{{ row.username }}</p>
+	<p id="login0_time">{{ row.login_timestamp }}</p>
+	<p id="logout0_time">{{ row.logout_timestamp }}</p>
+	{% endfor %}
+{% endif %}
+{% if 'username' in session.keys() %}
+<li><a href="/logout">Logout <span class="sr-only">(current)</span></a></li>
+{% endif %}
+<li><a href="/logout">Logout</a></li>

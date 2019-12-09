@@ -1,0 +1,6 @@
+wtforms
+flask-wtf
+itsdangerous
+flask_sqlalchemy
+flask_table
+sqlalchemy
